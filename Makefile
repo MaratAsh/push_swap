@@ -6,7 +6,7 @@
 #    By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 19:48:32 by alcierra          #+#    #+#              #
-#    Updated: 2022/03/04 14:40:11 by alcierra         ###   ########.fr        #
+#    Updated: 2022/03/04 14:48:25 by alcierra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,12 +30,15 @@ FLAGS	=	-Wall -Wextra -Werror
 INCLUDE	=	./libft/libft.a
 I_MAKE	=	make -C $(dir $(INCLUDE))
 
-all: lib $(NAME)
+all: lib $(FLDR_O) $(NAME)
 
 lib:
 		echo $(SRCS_WD)
 		${I_MAKE} bonus
 		${I_MAKE}
+
+$(FLDR_O):
+		mkdir $(FLDR_O)
 
 $(NAME): ${OBJS_WD} ${HEADER}
 		gcc -I. $(INCLUDE) $(OBJS_WD) -o $(NAME)
