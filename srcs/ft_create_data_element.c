@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_create_data_element.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/11 19:46:13 by alcierra          #+#    #+#             */
-/*   Updated: 2022/01/14 15:57:52 by alcierra         ###   ########.fr       */
+/*   Created: 2022/01/20 14:08:20 by alcierra          #+#    #+#             */
+/*   Updated: 2022/03/04 14:39:39 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
-#include <stdio.h>
+#include "../ft_push_swap.h"
 
-int	main(int argc, char **argv)
+t_data	*ft_create_data_element(int number, int index)
 {
-	int	*nums;
+	t_data	*elem;
 
-	if (argc > 1)
-	{
-		nums = ft_strs_to_ints(argv + 1, argc - 1);
-		// argc--;
-		int i = -1;
-		while (++i < argc - 1)
-		{
-			printf("%d\n", nums[i]);
-			// --argc;
-		}
-	}
-	return (0);
+	elem = (t_data *) malloc(sizeof(elem));
+	elem->number = number;
+	elem->index = index;
+	return (elem);
 }

@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_operation_push.c                                :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/14 16:51:07 by alcierra          #+#    #+#             */
-/*   Updated: 2022/01/14 19:09:23 by alcierra         ###   ########.fr       */
+/*   Created: 2022/01/11 19:46:13 by alcierra          #+#    #+#             */
+/*   Updated: 2022/03/04 14:38:38 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "../ft_push_swap.h"
+#include <stdio.h>
 
-void	ft_operation_push(t_stack *s_from, t_stack *s_to)
+int	main(int argc, char **argv)
 {
-	s_to->prev = s_from;
-	s_from->next->prev = NULL;
-}
+	int		*nums;
+	t_all	*data;
 
-void	ft_operation_push_a(t_all *stacks)
-{
-	ft_operation_push(stacks->st_a, stacks->st_b);
-	stacks->st_a = stacks->st_a
-}
-
-void	ft_operation_push_a(t_all *stacks)
-{
-		
+	if (argc <= 1)
+		return (0);
+	nums = ft_strs_to_ints(argv + 1, argc - 1);
+	data = malloc(sizeof(t_all));
+	data->st_a = ft_construct_stack(nums, argc - 1);
+	data->st_b = NULL;
+	ft_dll_print(data->st_a, 0);
+	
+	return (0);
 }

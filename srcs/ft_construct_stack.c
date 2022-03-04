@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strs_to_ints.c                                  :+:      :+:    :+:   */
+/*   ft_construct_stack.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/11 20:07:34 by alcierra          #+#    #+#             */
-/*   Updated: 2022/01/14 14:20:54 by alcierra         ###   ########.fr       */
+/*   Created: 2022/01/17 16:12:12 by alcierra          #+#    #+#             */
+/*   Updated: 2022/03/04 14:39:44 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "../ft_push_swap.h"
 
-int	*ft_strs_to_ints(char **strs, int count)
+t_stack	*ft_construct_stack(int	*nums, int count)
 {
-	int	index;
-	int	*nums;
+	t_stack	*start;
+	t_stack	*current;
+	int		index;
 
-	nums = malloc(count);
-	index = 0;
+	start = dll_create_element(nums);
+	current = start;
+	index = 1;
 	while (index < count)
 	{
-		nums[index] = ft_atoi(strs[index]);
+		current->next = dll_create_element(nums + index);
+		current->next->prev = current;
+		current = current->next;
 		++index;
 	}
-	return (nums);
+	return (start);
 }
