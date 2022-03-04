@@ -6,7 +6,7 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 20:07:34 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/04 14:39:15 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/04 15:26:22 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	*ft_strs_to_ints(char **strs, int count)
 	int	index;
 	int	*nums;
 
-	nums = malloc(count);
+	nums = malloc(count * sizeof(int));
 	index = 0;
 	while (index < count)
 	{
