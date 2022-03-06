@@ -6,7 +6,7 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 19:54:59 by alcierra          #+#    #+#             */
-/*   Updated: 2022/01/20 14:44:44 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/06 20:15:20 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,45 @@ typedef struct s_data
 }				t_data;
 
 t_data	*ft_create_data_element(int number, int index);
+// ft_operation_push.c
+
+void	ft_operation_push_a(t_all *stacks);
+void	ft_operation_push_b(t_all *stacks);
+
+// ft_operation_swap.c
+
+void	ft_operation_swap(t_stack **head);
+void	ft_operation_swap_a(t_all *all);
+void	ft_operation_swap_b(t_all *all);
+void	ft_operation_swap_s(t_all *all);
+
+// ft_operation_rotate.c
+
+void	ft_operation_rotate(t_stack **head);
+void	ft_operation_rotate_a(t_all *all);
+void	ft_operation_rotate_b(t_all *all);
+void	ft_operation_rotate_r(t_all *all);
+
+// ft_operation_revrotate.c
+
+void	ft_operation_revrotate(t_stack **head);
+void	ft_operation_revrotate_a(t_all *all);
+void	ft_operation_revrotate_b(t_all *all);
+void	ft_operation_revrotate_r(t_all *all);
+
+// ft_stack_free.c
+
+void	ft_stack_free(t_stack *stack);
+
+// ft_arg_checker.c
+
+int		ft_check_dublicates(char **strs_ptr, size_t count);
+int		ft_check_ints_only(char **strs_ptr, size_t count);
+
+// ft_sort.c
+void	ft_2_sort(t_all *all, char type);
+void	ft_3_sort(t_all *all, char type);
+void	ft_4_5_sort(t_all *all);
+void	ft_5_sort(t_all all);
 
 #endif

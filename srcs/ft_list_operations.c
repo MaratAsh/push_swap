@@ -6,7 +6,7 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 16:53:05 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/04 14:39:35 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/06 19:23:16 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,11 @@ void	ft_dll_print(t_stack *dllist, int rec_depth)
 {
 	int	i;
 
+	if (!dllist)
+	{
+		printf("%p\n", dllist);
+		return ;
+	}
 	i = 0;
 	while (i++ < rec_depth)
 		printf(STRPREV);
@@ -66,7 +71,7 @@ void	ft_dll_print(t_stack *dllist, int rec_depth)
 	i = 0;
 	while (i++ < rec_depth)
 		printf(STRPREV);
-	printf("data | %d  |\n", *((int *)dllist->data));
+	printf("data | %p -> %d |\n", dllist->data, *((int *)dllist->data));
 	i = 0;
 	while (i++ < rec_depth)
 		printf(STRPREV);

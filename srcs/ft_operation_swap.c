@@ -6,24 +6,56 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:24:12 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/04 14:39:23 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/06 20:17:33 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_push_swap.h"
 
-void	ft_operation_swap(t_stack *head)
-{
-	t_stack	*swapable;
-	t_stack	*permanent;
 
-	swapable = head->next;
-	if (!swapable)
+void	ft_operation_swap_head(t_stack *head)
+{
+	t_stack	*second;
+	t_stack	*third;
+
+	if (!head)
 		return ;
-	permanent = swapable->next;
-	swapable->next = head;
-	swapable->prev = head->prev;
-	head->next = permanent;
-	if (permanent)
-		permanent->prev = head;
+	if (!(head->next))
+		return ;
+	second = head->next;
+	if (second->next)
+		third = second->next;
+	else
+		third = NULL;
+	second->next = head;
+	second->prev = head->prev;
+	head->next = third;
+	head->prev = second;
+}
+
+void	ft_operation_swap(t_stack **head)
+{
+	ft_operation_swap_head(*head);
+	if (((*head)->prev))
+		*head = (*head)->prev;
+}
+
+void	ft_operation_swap_a(t_all *all)
+{
+	if (all->st_a)
+		ft_operation_swap(&(all->st_a));
+}
+
+void	ft_operation_swap_b(t_all *all)
+{
+	if (all->st_b)
+		ft_operation_swap(&(all->st_b));
+}
+
+void	ft_operation_swap_s(t_all *all)
+{
+	if (all->st_a)
+		ft_operation_swap(&(all->st_a));
+	if (all->st_b)
+		ft_operation_swap(&(all->st_b));
 }
