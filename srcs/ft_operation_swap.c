@@ -6,12 +6,11 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:24:12 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/06 20:17:33 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/09 14:41:21 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_push_swap.h"
-
 
 void	ft_operation_swap_head(t_stack *head)
 {
