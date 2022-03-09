@@ -6,7 +6,7 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 13:18:26 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/09 13:57:52 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/09 14:32:16 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,19 @@ static void	ft_process_command(char *input, t_all *data)
 		ft_operation_revrotate_r(data);
 }
 
+static void	ft_strreplchr(char *str, int key, int value)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if ((unsigned int) str[i] == (unsigned int) key)
+			str[i] = (unsigned int) value;
+		++i;
+	}
+}
+
 void	ft_process_input(t_all *data)
 {
 	char	*input;
@@ -51,6 +64,7 @@ void	ft_process_input(t_all *data)
 			free(input);
 			break ;
 		}
+		ft_strreplchr(input, '\n', '\0');
 		ft_process_command(input, data);
 		free(input);
 		input = get_next_line(1);
