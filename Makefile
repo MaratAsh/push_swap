@@ -6,7 +6,7 @@
 #    By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 19:48:32 by alcierra          #+#    #+#              #
-#    Updated: 2022/03/09 13:39:59 by alcierra         ###   ########.fr        #
+#    Updated: 2022/03/09 13:50:43 by alcierra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,9 @@ SRCS	=	ft_strs_to_ints.c			ft_list_operations.c		\
 			ft_stack_free.c				ft_operation_rotate.c		\
 			ft_operation_revrotate.c
 
-SRCS_B	=	bonus/main.c				bonus/ft_process_input.c
+SRCS_B	=	bonus/main.c				bonus/ft_process_input.c	\
+			bonus/get_next_line.c		bonus/get_next_line_utils.c
+
 OBJS	=	${SRCS:.c=.o}
 OBJS_B	=	${SRCS_B:.c=.o}
 
@@ -68,6 +70,6 @@ re: fclean all
 
 norm:
 		norminette ft_push_swap.h
-		norminette $(FLDR_S)*.c $(FLDR_S)bonus/*.c
+		norminette -R CheckForbiddenSourceHeader $(FLDR_S)*.c $(FLDR_S)bonus/*.c
 
 .PHONY: all clean fclean re

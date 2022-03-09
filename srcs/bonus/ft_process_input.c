@@ -6,58 +6,12 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 13:18:26 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/09 13:30:43 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/09 13:57:52 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../ft_push_swap.h"
-#include <unistd.h>
-
-#define BUFFER_SIZE 8
-
-static char	*gnl(int fd)
-{
-	static char	buff[BUFFER_SIZE + 1];
-	size_t		buff_len;
-	int			ret;
-	char		*nls;
-	char		*str;
-
-	buff_len = ft_strlen(buff);
-	if (buff_len > 0)
-	{
-		nls = ft_strchr(buff, '\n');
-		if (nls)
-		{
-			str = malloc(nls - buff + 1);
-			str[nls - buff] = 0;
-			ft_memcpy(str, buff, nls - buff);
-			ft_memmove(buff, nls + 1, BUFFER_SIZE);
-			return (str);
-		}
-	}
-	ret = read(fd, buff + buff_len, BUFFER_SIZE - buff_len);
-	if (ret < 0)
-		return (NULL);
-	buff[buff_len + ret] = 0;
-	nls = ft_strchr(buff, '\n');
-	if (nls)
-	{
-		str = malloc(nls - buff + 1);
-		str[nls - buff] = 0;
-		ft_memcpy(str, buff, nls - buff);
-		ft_memmove(buff, nls + 1, BUFFER_SIZE);
-		return (str);
-	}
-	else
-	{
-		str = malloc(BUFFER_SIZE + 1);
-		str[BUFFER_SIZE] = 0;
-		ft_memcpy(str, buff, BUFFER_SIZE);
-		ft_memset(buff, 0, BUFFER_SIZE);
-		return (str);
-	}
-}
+#include "./get_next_line.h"
 
 static void	ft_process_command(char *input, t_all *data)
 {
@@ -89,7 +43,7 @@ void	ft_process_input(t_all *data)
 {
 	char	*input;
 
-	input = gnl(1);
+	input = get_next_line(1);
 	while (input)
 	{
 		if (input[0] == 0)
@@ -99,7 +53,7 @@ void	ft_process_input(t_all *data)
 		}
 		ft_process_command(input, data);
 		free(input);
-		input = gnl(1);
+		input = get_next_line(1);
 	}
 }
 
@@ -108,7 +62,7 @@ void	ft_process_input(t_all *data)
 {
 	char	*input;
 
-	input = gnl(1);
+	input = get_next_line(1);
 	while (input)
 	{
 		if (input[0] == 0)
@@ -202,7 +156,7 @@ void	ft_process_input(t_all *data)
 			ft_putendl_fd(input, 1);
 		}
 		free(input);
-		input = gnl(1);
+		input = get_next_line(1);
 	}
 }
 */
