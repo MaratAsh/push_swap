@@ -6,7 +6,7 @@
 #    By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 19:48:32 by alcierra          #+#    #+#              #
-#    Updated: 2022/03/09 13:50:43 by alcierra         ###   ########.fr        #
+#    Updated: 2022/03/09 14:58:53 by alcierra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,7 @@ bonus:	$(FLDR_O) ${OBJS_WD} ${OBJS_B_WD}
 		gcc -I. $(INCLUDE) $(OBJS_WD) $(OBJS_B_WD) -o checker
 
 clean:
-		rm -rf ${OBJS_WD} ${OBJS_B_WD}
+		rm -rf $(FLDR_O)main.o ${OBJS_WD} ${OBJS_B_WD}
 		${I_MAKE} clean
 
 fclean: clean
