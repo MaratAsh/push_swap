@@ -6,14 +6,14 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 13:18:26 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/09 14:32:16 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/09 14:53:43 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../ft_push_swap.h"
 #include "./get_next_line.h"
 
-static void	ft_process_command(char *input, t_all *data)
+static int	ft_process_command(char *input, t_all *data)
 {
 	if (ft_memcmp(input, "sa", 3) == 0)
 		ft_operation_swap_a(data);
@@ -37,6 +37,9 @@ static void	ft_process_command(char *input, t_all *data)
 		ft_operation_revrotate_b(data);
 	else if (ft_memcmp(input, "rrr", 4) == 0)
 		ft_operation_revrotate_r(data);
+	else
+		return (0);
+	return (1);
 }
 
 static void	ft_strreplchr(char *str, int key, int value)
@@ -52,11 +55,13 @@ static void	ft_strreplchr(char *str, int key, int value)
 	}
 }
 
-void	ft_process_input(t_all *data)
+size_t	ft_process_input(t_all *data)
 {
 	char	*input;
+	size_t	count;
 
 	input = get_next_line(1);
+	count = 0;
 	while (input)
 	{
 		if (input[0] == 0)
@@ -65,14 +70,15 @@ void	ft_process_input(t_all *data)
 			break ;
 		}
 		ft_strreplchr(input, '\n', '\0');
-		ft_process_command(input, data);
+		count += ft_process_command(input, data);
 		free(input);
 		input = get_next_line(1);
 	}
+	return (count);
 }
 
 /*
-void	ft_process_input(t_all *data)
+size_t	ft_process_input(t_all *data)
 {
 	char	*input;
 
@@ -172,5 +178,6 @@ void	ft_process_input(t_all *data)
 		free(input);
 		input = get_next_line(1);
 	}
+	return (1);
 }
 */

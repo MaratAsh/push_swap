@@ -6,7 +6,7 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 19:54:59 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/09 13:32:02 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/09 14:53:57 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,6 @@ void	ft_5_sort(t_all all);
 
 // ft_process_input.c
 
-void	ft_process_input(t_all *data);
+size_t	ft_process_input(t_all *data);
 
 #endif
