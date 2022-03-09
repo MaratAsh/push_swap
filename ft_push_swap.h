@@ -6,7 +6,7 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 19:54:59 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/06 20:15:20 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/09 13:32:02 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,14 @@ int		ft_check_dublicates(char **strs_ptr, size_t count);
 int		ft_check_ints_only(char **strs_ptr, size_t count);
 
 // ft_sort.c
+
 void	ft_2_sort(t_all *all, char type);
 void	ft_3_sort(t_all *all, char type);
 void	ft_4_5_sort(t_all *all);
 void	ft_5_sort(t_all all);
+
+// ft_process_input.c
+
+void	ft_process_input(t_all *data);
 
 #endif
