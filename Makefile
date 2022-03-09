@@ -6,7 +6,7 @@
 #    By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 19:48:32 by alcierra          #+#    #+#              #
-#    Updated: 2022/03/09 14:58:53 by alcierra         ###   ########.fr        #
+#    Updated: 2022/03/09 15:03:42 by alcierra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,6 @@ I_MAKE	=	make -C $(dir $(INCLUDE))
 all: lib $(FLDR_O) $(NAME)
 
 lib:
-		echo $(SRCS_WD)
 		${I_MAKE} bonus
 		${I_MAKE}
 
@@ -52,7 +51,7 @@ $(FLDR_O):
 $(NAME): ${OBJS_WD} ${FLDR_O}main.o ${HEADER}
 		gcc -I. $(INCLUDE) $(OBJS_WD) ${FLDR_O}main.o -o $(NAME)
 
-bonus:	$(FLDR_O) ${OBJS_WD} ${OBJS_B_WD}
+bonus:	lib $(FLDR_O) ${OBJS_WD} ${OBJS_B_WD}
 		gcc -I. $(INCLUDE) $(OBJS_WD) $(OBJS_B_WD) -o checker
 
 clean:
