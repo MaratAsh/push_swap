@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack_free.c                                    :+:      :+:    :+:   */
+/*   ft_stack_len.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/06 17:57:00 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/11 20:01:49 by alcierra         ###   ########.fr       */
+/*   Created: 2022/03/10 20:51:54 by alcierra          #+#    #+#             */
+/*   Updated: 2022/03/10 20:54:49 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_push_swap.h"
 
-void	ft_stack_free(t_dlist *stack)
+size_t	ft_stack_len(t_stack *head)
 {
-	t_dlist	*next;
+	size_t	index;
 
-	while (stack)
+	index = 1;
+	if (!head)
+		return (0);
+	while (head->next)
 	{
-		next = stack->next;
-		free(stack->content);
-		free(stack);
-		stack = next;
+		index++;
+		head = head->next;
 	}
+	return (index);
 }

@@ -6,16 +6,16 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 19:57:42 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/06 20:38:18 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/11 20:00:42 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_push_swap.h"
 
-void	ft_operation_rotate(t_stack **head)
+void	ft_operation_rotate(t_dlist **head)
 {
-	t_stack	*first;
-	t_stack	*last;
+	t_dlist	*first;
+	t_dlist	*last;
 
 	first = *head;
 	last = first;

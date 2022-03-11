@@ -6,7 +6,7 @@
 #    By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 19:48:32 by alcierra          #+#    #+#              #
-#    Updated: 2022/03/09 15:03:42 by alcierra         ###   ########.fr        #
+#    Updated: 2022/03/11 20:33:29 by alcierra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,9 @@ SRCS	=	ft_strs_to_ints.c			ft_list_operations.c		\
 			ft_create_data_element.c	ft_sort.c					\
 			ft_operation_push.c			ft_arg_checker.c			\
 			ft_stack_free.c				ft_operation_rotate.c		\
-			ft_operation_revrotate.c
+			ft_operation_revrotate.c	ft_stack_len.c				\
+			ft_sort_ints.c											\
+			ft_data.c					ft_convert.c
 
 SRCS_B	=	bonus/main.c				bonus/ft_process_input.c	\
 			bonus/get_next_line.c		bonus/get_next_line_utils.c
@@ -70,5 +72,8 @@ re: fclean all
 norm:
 		norminette ft_push_swap.h
 		norminette -R CheckForbiddenSourceHeader $(FLDR_S)*.c $(FLDR_S)bonus/*.c
+
+leaks:
+		leaks -atExit -- ./push_swap 65 545 5 98 64 84
 
 .PHONY: all clean fclean re

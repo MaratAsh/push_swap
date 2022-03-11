@@ -6,16 +6,16 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:24:12 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/09 14:41:21 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/11 19:59:30 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_push_swap.h"
 
-void	ft_operation_swap_head(t_stack *head)
+void	ft_operation_swap_head(t_dlist *head)
 {
-	t_stack	*second;
-	t_stack	*third;
+	t_dlist	*second;
+	t_dlist	*third;
 
 	if (!head)
 		return ;
@@ -32,7 +32,7 @@ void	ft_operation_swap_head(t_stack *head)
 	head->prev = second;
 }
 
-void	ft_operation_swap(t_stack **head)
+void	ft_operation_swap(t_dlist **head)
 {
 	ft_operation_swap_head(*head);
 	if (((*head)->prev))

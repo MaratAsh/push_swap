@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack_free.c                                    :+:      :+:    :+:   */
+/*   ft_data.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/06 17:57:00 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/11 20:01:49 by alcierra         ###   ########.fr       */
+/*   Created: 2022/03/11 17:29:47 by alcierra          #+#    #+#             */
+/*   Updated: 2022/03/11 17:32:16 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_push_swap.h"
 
-void	ft_stack_free(t_dlist *stack)
+t_data	*ft_create_data(int number, unsigned int index)
 {
-	t_dlist	*next;
+	t_data	*elem;
 
-	while (stack)
-	{
-		next = stack->next;
-		free(stack->content);
-		free(stack);
-		stack = next;
-	}
+	elem = malloc(sizeof(t_data));
+	if (!elem)
+		return (NULL);
+	elem->index = index;
+	elem->number = number;
+	elem->group = 0;
+	return (elem);
+}
+
+t_data	*ft_dlstdata(t_dlist *dlist)
+{
+	return ((t_data *)(dlist->content));
 }

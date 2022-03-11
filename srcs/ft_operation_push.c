@@ -6,7 +6,7 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 16:51:07 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/06 21:01:05 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/11 20:30:33 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_operation_push_a(t_all *stacks)
 {
-	t_stack	*elem;
+	t_dlist	*elem;
 
 	if (!stacks || stacks->st_b == NULL)
 		return ;
@@ -29,7 +29,7 @@ void	ft_operation_push_a(t_all *stacks)
 
 void	ft_operation_push_b(t_all *stacks)
 {
-	t_stack	*elem;
+	t_dlist	*elem;
 
 	if (!stacks || stacks->st_a == NULL)
 		return ;
