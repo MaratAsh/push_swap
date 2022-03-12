@@ -6,7 +6,7 @@
 #    By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 19:48:32 by alcierra          #+#    #+#              #
-#    Updated: 2022/03/12 18:44:21 by alcierra         ###   ########.fr        #
+#    Updated: 2022/03/12 22:47:52 by alcierra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,9 @@ SRCS	=	ft_strs_to_ints.c			ft_list_operations.c		\
 			ft_operation_revrotate.c					\
 			ft_sort_ints.c											\
 			ft_data.c					ft_convert.c				\
-			ft_smth.c					ft_create_stacks.c
+			ft_smth.c					ft_create_stacks.c			\
+			ft_dlst_mindata.c			ft_is_sorted.c				\
+			ft_sort_manager.c
 
 SRCS_B	=	bonus/main.c				bonus/ft_process_input.c	\
 			bonus/get_next_line.c		bonus/get_next_line_utils.c

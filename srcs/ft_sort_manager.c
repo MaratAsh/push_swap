@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_sort_manager.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/11 19:46:13 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/12 22:48:22 by alcierra         ###   ########.fr       */
+/*   Created: 2022/03/12 22:44:48 by alcierra          #+#    #+#             */
+/*   Updated: 2022/03/12 22:47:04 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_push_swap.h"
 
-int	main(int argc, char **argv)
+void	ft_sort_manager(t_all *all)
 {
 	size_t	count;
-	t_all	*data;
+	int		i;
 
-	data = ft_create_stacks(argv + 1, argc - 1);
-	count = ft_dlstsize(data->st_a);
-	ft_sort_manager(data);
-	ft_stack_free(data->st_a);
-	if (data->st_b)
-		ft_stack_free(data->st_b);
-	free(data);
-	return (0);
+	count = ft_dlstsize(all->st_a);
+	if (count == 2)
+		ft_2_sort(all, 'a');
+	else if (count == 3)
+		ft_3_sort(all, 'a');
+	else if (count > 3)
+	{
+		i = 0;
+		while (ft_is_sorted(all->st_a) == 0 && i < 5)
+		{
+			ft_sort_a(all);
+			i++;
+		}
+	}
 }

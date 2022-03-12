@@ -6,7 +6,7 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 15:42:11 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/11 20:29:42 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/12 22:29:58 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void	ft_3_sort(t_all *all, char type)
 	int		*first;
 	int		*second;
 	int		*third;
-	int		buff;
 	t_dlist	*stack;
 
 	if (type == 'a')
@@ -74,10 +73,6 @@ void	ft_3_sort(t_all *all, char type)
 			ft_putendl_fd("rb", 1);
 			ft_operation_rotate_b(all);
 		}
-		buff = *first;
-		*first = *second;
-		*second = *third;
-		*third = buff;
 		ft_3_sort(all, 'a');
 	}
 	else
@@ -141,9 +136,103 @@ void	ft_5_sort(t_all *all)
 	(void) all;
 }
 
-size_t	ft_5_sort_(t_all *all)
+void	ft_swipe(t_all *all, char type)
 {
 	(void) all;
+	(void) type;
+}
 
-	return (0);
+void	ft_(t_all *all)
+{
+	(void) all;
+}
+
+void	ft_sort_b_(t_all *all)
+{
+	(void) all;
+}
+
+void	ft_sort_b(t_all *all)
+{
+	size_t	count;
+	size_t	i;
+	size_t	mid;
+	t_dlist	*curr;
+	t_data	*data;
+
+	count = ft_dlstsize(all->st_b);
+	if (count < 3)
+	{
+		ft_2_sort(all, 'b');
+		return ;
+	}
+	else if (count < 50)
+	{
+		ft_sort_b_(all);
+		return ;
+	}
+	mid = count / 2 + ft_dlst_mindata(all->st_b)->index;
+	curr = all->st_b;
+	i = 0;
+	while (i < count)
+	{
+		data = ft_dlstdata(curr);
+		if (data->index > mid)
+		{
+			ft_putendl_fd("pa", 1);
+			ft_operation_push_a(all);
+		}
+		else
+		{
+			ft_putendl_fd("rb", 1);
+			ft_operation_rotate_b(all);
+		}
+		curr = all->st_b;
+		i++;
+	}
+	curr = all->st_b;
+	while (curr)
+	{
+		ft_dlstdata(curr)->group++;
+		curr = curr->next;
+	}
+	ft_sort_b(all);
+	while (all->st_b)
+	{
+		ft_putendl_fd("pb", 1);
+		ft_operation_push_a(all);
+	}
+}
+
+void	ft_sort_a(t_all *all)
+{
+	size_t	count;
+	size_t	i;
+	size_t	mid;
+	t_dlist	*curr;
+	//t_dlist	*stop;
+	t_data	*data;
+
+	count = ft_dlstsize(all->st_a);
+	mid = count / 2 + ft_dlst_mindata(all->st_a)->index;
+	curr = all->st_a;
+	i = 0;
+	while (i < count)
+	{
+		data = ft_dlstdata(curr);
+		if (data->index < mid)
+		{
+			data->group++;
+			ft_putendl_fd("pb", 1);
+			ft_operation_push_b(all);
+		}
+		else
+		{
+			ft_putendl_fd("ra", 1);
+			ft_operation_rotate_a(all);
+		}
+		curr = all->st_a;
+		i++;
+	}
+	ft_sort_b(all);
 }

@@ -6,7 +6,7 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 19:54:59 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/12 18:42:13 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/12 22:48:02 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ void	ft_2_sort(t_all *all, char type);
 void	ft_3_sort(t_all *all, char type);
 void	ft_4_5_sort(t_all *all);
 void	ft_5_sort(t_all *all);
+void	ft_sort_a(t_all *all);
+void	ft_sort_b(t_all *all);
 
 // ft_process_input.c
 
@@ -103,5 +105,11 @@ size_t	ft_count(void **ptr);
 void	ft_free(void **ptr);
 
 t_all	*ft_create_stacks(char **strs, size_t count);
+
+t_data	*ft_dlst_mindata(t_dlist *dlst);
+
+int		ft_is_sorted(t_dlist *st);
+
+void	ft_sort_manager(t_all *all);
 
 #endif
