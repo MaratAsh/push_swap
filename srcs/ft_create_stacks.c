@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack_len.c                                     :+:      :+:    :+:   */
+/*   ft_create_stacks.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/10 20:51:54 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/10 20:54:49 by alcierra         ###   ########.fr       */
+/*   Created: 2022/03/12 16:52:20 by alcierra          #+#    #+#             */
+/*   Updated: 2022/03/12 16:53:17 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_push_swap.h"
 
-size_t	ft_stack_len(t_stack *head)
+t_all	*ft_create_stacks(char **strs, size_t count)
 {
-	size_t	index;
+	t_all	*data;
 
-	index = 1;
-	if (!head)
-		return (0);
-	while (head->next)
-	{
-		index++;
-		head = head->next;
-	}
-	return (index);
+	data = malloc(sizeof(t_all));
+	data->st_a = ft_convert(strs, count);
+	data->st_b = NULL;
+	return (data);
 }

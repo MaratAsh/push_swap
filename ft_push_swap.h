@@ -6,7 +6,7 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 19:54:59 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/12 16:38:21 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/12 18:42:13 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,6 @@
 
 # include <stdio.h>
 # include <unistd.h>
-
-typedef struct s_stack
-{
-	struct s_stack	*next;
-	struct s_stack	*prev;
-	void			*data;
-	unsigned int	group;
-	unsigned int	index;
-}				t_stack;
 
 typedef struct s_data
 {
@@ -42,15 +33,6 @@ typedef struct s_all
 }				t_all;
 
 int		*ft_strs_to_ints(char **strs, int count);
-
-// ft_list_operations.c
-t_stack	*dll_create_element(void *data);
-t_stack	*dll_get_last_elem(t_stack *elem);
-t_stack	*dll_insert_to_last(t_stack *head, t_stack *elem);
-void	ft_dll_print(t_stack *dllist, int rec_depth);
-
-// ft_construct_stack.c
-t_stack	*ft_construct_stack(int	*nums, int *sorted, unsigned int count);
 
 t_data	*ft_create_data_element(int number, int index);
 // ft_operation_push.c
@@ -99,15 +81,13 @@ void	ft_5_sort(t_all *all);
 
 size_t	ft_process_input(t_all *data);
 
-// 
-
-size_t	ft_stack_len(t_stack *head);
-
 void	ft_sort_ints(int *nums, size_t count);
 
 /*
 	NEW
 */
+
+// ft_list_operations.c
 
 void	ft_dllist_print(t_dlist *dllist, int rec_depth);
 
@@ -121,5 +101,7 @@ t_dlist	*ft_convert(char **strs, size_t count);
 void	ft_error(void);
 size_t	ft_count(void **ptr);
 void	ft_free(void **ptr);
+
+t_all	*ft_create_stacks(char **strs, size_t count);
 
 #endif

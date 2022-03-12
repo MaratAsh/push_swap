@@ -6,21 +6,21 @@
 #    By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 19:48:32 by alcierra          #+#    #+#              #
-#    Updated: 2022/03/12 16:39:37 by alcierra         ###   ########.fr        #
+#    Updated: 2022/03/12 18:44:21 by alcierra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	push_swap
 HEADER	=	ft_push_swap.h
 SRCS	=	ft_strs_to_ints.c			ft_list_operations.c		\
-			ft_operation_swap.c			ft_construct_stack.c		\
+			ft_operation_swap.c					\
 			ft_create_data_element.c	ft_sort.c					\
 			ft_operation_push.c			ft_arg_checker.c			\
 			ft_stack_free.c				ft_operation_rotate.c		\
-			ft_operation_revrotate.c	ft_stack_len.c				\
+			ft_operation_revrotate.c					\
 			ft_sort_ints.c											\
 			ft_data.c					ft_convert.c				\
-			ft_smth.c
+			ft_smth.c					ft_create_stacks.c
 
 SRCS_B	=	bonus/main.c				bonus/ft_process_input.c	\
 			bonus/get_next_line.c		bonus/get_next_line_utils.c
