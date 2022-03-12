@@ -1,27 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_smth.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/11 19:46:13 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/12 16:44:06 by alcierra         ###   ########.fr       */
+/*   Created: 2022/03/12 16:37:02 by alcierra          #+#    #+#             */
+/*   Updated: 2022/03/12 16:39:28 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_push_swap.h"
 
-int	main(int argc, char **argv)
+void	ft_error(void)
 {
-	size_t	count;
-	t_dlist	*dlist;
+	ft_putendl_fd("Error", 2);
+	exit(0);
+}
 
-	if (count == 0)
-		ft_error();
-	dlist = ft_convert(argv + 1, argc - 1);
-	count = ft_dlstsize(dlist);
-	//ft_dllist_print(dlist, 0);
-	ft_dlstclear(&dlist, free);
-	return (0);
+size_t	ft_count(void **ptr)
+{
+	char	**ptrs;
+	size_t	i;
+
+	ptrs = (char **) ptr;
+	i = 0;
+	while (ptrs[i])
+		i++;
+	return (i);
+}
+
+void	ft_free(void **ptr)
+{
+	char	**ptrs;
+	size_t	i;
+
+	ptrs = (char **) ptr;
+	i = 0;
+	while (ptrs[i])
+	{
+		free(ptrs[i]);
+		i++;
+	}
+	free(ptrs);
 }

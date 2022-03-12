@@ -6,7 +6,7 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 19:54:59 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/11 20:33:07 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/12 16:38:21 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,5 +117,9 @@ t_data	*ft_create_data(int number, unsigned int index);
 t_data	*ft_dlstdata(t_dlist *dlist);
 
 t_dlist	*ft_convert(char **strs, size_t count);
+
+void	ft_error(void);
+size_t	ft_count(void **ptr);
+void	ft_free(void **ptr);
 
 #endif

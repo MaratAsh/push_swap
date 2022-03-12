@@ -6,7 +6,7 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 20:32:10 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/11 20:35:50 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/12 16:45:41 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,39 +43,6 @@ int	ft_check_coincedence(int *nums, size_t count, int value)
 	return (0);
 }
 
-void	ft_error(void)
-{
-	ft_putendl_fd("Error", 2);
-	exit(0);
-}
-
-size_t	ft_count(void **ptr)
-{
-	char	**ptrs;
-	size_t	i;
-
-	ptrs = (char **) ptr;
-	i = 0;
-	while (ptrs[i])
-		i++;
-	return (i);
-}
-
-void	ft_free(void **ptr)
-{
-	char	**ptrs;
-	size_t	i;
-
-	ptrs = (char **) ptr;
-	i = 0;
-	while (ptrs[i])
-	{
-		free(ptrs[i]);
-		i++;
-	}
-	free(ptrs);
-}
-
 t_dlist	*ft_convert(char **strs, size_t count)
 {
 	char	**ptr;
@@ -87,6 +54,8 @@ t_dlist	*ft_convert(char **strs, size_t count)
 	int		*nums;
 
 	dlist = NULL;
+	if (count == 0)
+		ft_error();
 	if (count == 1 && ft_strchr(*strs, ' ') != NULL)
 	{
 		ptr = ft_split(*strs, ' ');
@@ -110,7 +79,8 @@ t_dlist	*ft_convert(char **strs, size_t count)
 			if (ft_strncmp(ptr[i], intstr, ft_strlen(intstr) + 1) == 0
 				&& ft_check_coincedence(nums, i, nums[i]) == 0)
 			{
-				dlist = ft_create_dlist(ft_create_data(nums[i], 0), dlist, NULL);
+				dlist = ft_create_dlist(
+						ft_create_data(nums[i], 0), dlist, NULL);
 				if (i == 0)
 					start = dlist;
 			}
@@ -129,25 +99,7 @@ t_dlist	*ft_convert(char **strs, size_t count)
 		}
 		i++;
 	}
-
-	printf("i = %lu\ncount = %lu\n", i, count);
-	i = 0;
-	while (i < count)
-	{
-		printf("%d ", nums[i]);
-		i++;
-	}
-	printf("\n");
-	write(1, "some\n", 5);
 	ft_sort_ints(nums, 3);
-	write(1, "some 2\n", 7);
-	i = 0;
-	while (i < count)
-	{
-		printf("%d ", nums[i]);
-		i++;
-	}
-	printf("\n");
 	dlist = start;
 	while (dlist)
 	{
