@@ -6,7 +6,7 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 19:46:13 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/12 16:44:06 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/12 16:46:48 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ int	main(int argc, char **argv)
 	size_t	count;
 	t_dlist	*dlist;
 
-	if (count == 0)
-		ft_error();
 	dlist = ft_convert(argv + 1, argc - 1);
 	count = ft_dlstsize(dlist);
 	//ft_dllist_print(dlist, 0);
