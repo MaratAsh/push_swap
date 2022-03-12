@@ -6,7 +6,7 @@
 #    By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/06 12:53:24 by alcierra          #+#    #+#              #
-#    Updated: 2022/03/04 17:51:00 by alcierra         ###   ########.fr        #
+#    Updated: 2022/03/12 19:22:17 by alcierra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,8 @@ B_SRCS	=	ft_lstnew_bonus.c		ft_lstadd_front_bonus.c		ft_lstsize_bonus.c		\
 			ft_dlstnew.c			ft_dlstadd_front.c			ft_dlstsize.c			\
 			ft_dlstsize_full.c		ft_dlstlast.c				ft_dlstfirst.c			\
 			ft_dlstadd_back.c		ft_dlstadd_after.c			ft_dlstdelone.c			\
-			ft_dlstclear.c			ft_dlstiter.c				ft_dlstmap.c
+			ft_dlstclear.c			ft_dlstiter.c				ft_dlstmap.c			\
+			ft_dlstout.c
 
 OBJS	=	${SRCS:.c=.o}
 B_OBJS	=	${B_SRCS:.c=.o}

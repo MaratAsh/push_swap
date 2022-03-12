@@ -6,7 +6,7 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 12:00:00 by alcierra          #+#    #+#             */
-/*   Updated: 2022/02/02 21:53:38 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/12 19:22:04 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,6 @@ void	ft_dlstdelone(t_dlist *dlst, void (*del)(void*));
 void	ft_dlstclear(t_dlist **dlst, void (*del)(void*));
 void	ft_dlstiter(t_dlist *dlst, void (*f)(void *));
 t_dlist	*ft_dlstmap(t_dlist *dlst, void *(*f)(void *), void (*del)(void *));
+t_dlist	*ft_dlstout(t_dlist *elem);
 
 #endif
