@@ -6,7 +6,7 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 15:42:11 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/13 21:01:35 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/13 22:29:04 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,61 +49,55 @@ void	ft_2_sort(t_all *all, char type)
 
 void	ft_3_sort(t_all *all, char type)
 {
-	int		*first;
-	int		*second;
-	int		*third;
-	t_dlist	*stack;
+	t_data	*first;
+	t_data	*second;
+	t_data	*third;
 
 	if (type == 'a')
-		stack = all->st_a;
-	else
-		stack = all->st_b;
-	first = &((t_data *)(stack->content))->number;
-	second = &((t_data *)(stack->next->content))->number;
-	third = &((t_data *)(stack->next->next->content))->number;
-	if (*first > *second && *first > *third)
 	{
-		if (type == 'a')
-		{
-			ft_putendl_fd("ra", 1);
-			ft_operation_rotate_a(all);
-		}
-		else
-		{
-			ft_putendl_fd("rb", 1);
-			ft_operation_rotate_b(all);
-		}
-		ft_3_sort(all, 'a');
+		first = ft_dlstdata(all->st_a);
+		second = ft_dlstdata(all->st_a->next);
+		third = ft_dlstdata(all->st_a->next->next);
 	}
 	else
 	{
-		if (*second > *third)
-		{
-			if (type == 'a')
-			{
-				ft_putendl_fd("rra", 1);
-				ft_operation_revrotate_a(all);
-			}
-			else
-			{
-				ft_putendl_fd("rrb", 1);
-				ft_operation_revrotate_b(all);
-			}
-			ft_3_sort(all, 'a');
-		}
-		else if (*first > *second)
-		{
-			if (type == 'a')
-			{
-				ft_putendl_fd("sa", 1);
-				ft_operation_swap_a(all);
-			}
-			else
-			{
-				ft_putendl_fd("sb", 1);
-				ft_operation_swap_b(all);
-			}
-		}
+		first = ft_dlstdata(all->st_b);
+		second = ft_dlstdata(all->st_b->next);
+		third = ft_dlstdata(all->st_b->next->next);
+	}
+	if (first->index > second->index && first->index < third->index
+		&& second->index < third->index)
+	{
+		ft_putendl_fd("sa", 1);
+		ft_operation_swap_a(all);
+	}
+	else if (first->index > second->index && first->index > third->index
+		&& second->index > third->index)
+	{
+		ft_putendl_fd("sa", 1);
+		ft_operation_swap_a(all);
+		ft_putendl_fd("rra", 1);
+		ft_operation_revrotate_a(all);
+	}
+	else if (first->index > second->index && first->index > third->index
+		&& second->index < third->index)
+	{
+		ft_putendl_fd("ra", 1);
+		ft_operation_rotate_a(all);
+	}
+	else if (first->index < second->index && first->index < third->index
+		&& second->index > third->index)
+	{
+		ft_putendl_fd("sa", 1);
+		ft_operation_swap_a(all);
+		ft_putendl_fd("ra", 1);
+		ft_operation_rotate_a(all);
+	}
+	else if (first->index < second->index && first->index > third->index
+		&& second->index > third->index)
+	{
+		ft_putendl_fd("rra", 1);
+		ft_operation_revrotate_a(all);
 	}
 }
 
@@ -290,18 +284,11 @@ void	ft_sort_a(t_all *all)
 
 void	ft_quick_sort_b(t_all *all)
 {
-	t_data			*min_dt;
-	t_dlist			*min_dl;
 	size_t			count;
 	size_t			i;
-	//size_t			distance;
-	t_dlist			*curr;
 	unsigned int	middle;
 
-	min_dl = ft_dlst_mindata_dlst(all->st_b);
-	min_dt = ft_dlstdata(min_dl);
 	count = ft_dlstsize(all->st_b);
-	//distance = ft_dlst_distance(all->st_b, min_dl);
 	if (count == 2)
 	{
 		ft_2_sort(all, 'b');
@@ -312,17 +299,16 @@ void	ft_quick_sort_b(t_all *all)
 		ft_3_sort(all, 'b');
 		return ;
 	}
-	middle = count / 2 + min_dt->index;
-	curr = all->st_b;
+	middle = count / 2 + ft_dlst_mindata(all->st_b)->index;
 	i = 0;
 	while (i < count)
 	{
-		if (ft_dlstdata(curr)->index > middle)
+		if (ft_dlstdata(all->st_b)->index >= middle)
 		{
 			ft_putendl_fd("pa", 1);
 			ft_operation_push_a(all);
-			ft_putendl_fd("ra", 1);
-			ft_operation_rotate_a(all);
+			//ft_putendl_fd("ra", 1);
+			//ft_operation_rotate_a(all);
 		}
 		else
 		{
@@ -334,31 +320,36 @@ void	ft_quick_sort_b(t_all *all)
 	ft_quick_sort_b(all);
 }
 
+static void	ft_stack_a_middle_norm(t_all *all, unsigned int middle, size_t *ptr)
+{
+	if (ft_dlstdata(all->st_a)->index < middle)
+	{
+		ft_putendl_fd("pb", 1);
+		ft_operation_push_b(all);
+		(*ptr)++;
+	}
+	else
+	{
+		ft_putendl_fd("ra", 1);
+		ft_operation_rotate_a(all);
+	}
+}
+
 void	ft_stack_a_middle(t_all *all)
 {
 	unsigned int	middle;
 	size_t			count;
 	size_t			i;
 	size_t			pushed;
-	t_dlist			*dlst;
 
 	count = ft_dlstsize(all->st_a);
-	dlst = all->st_a;
 	middle = count / 2;
-	i = 0;
+	i = 1;
 	pushed = 0;
 	while (i < count)
+	//while (i < count && pushed < count / 2)
 	{
-		if (ft_dlstdata(dlst)->index < middle)
-		{
-			ft_putendl_fd("pb", 1);
-			ft_operation_push_b(all);
-			pushed++;
-		}
-		else
-		{
-			ft_putendl_fd("ra", 1);
-			ft_operation_rotate_a(all);
-		}
+		ft_stack_a_middle_norm(all, middle, &pushed);
+		i++;
 	}
 }
