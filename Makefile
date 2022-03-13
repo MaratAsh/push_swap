@@ -6,7 +6,7 @@
 #    By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 19:48:32 by alcierra          #+#    #+#              #
-#    Updated: 2022/03/12 22:47:52 by alcierra         ###   ########.fr        #
+#    Updated: 2022/03/13 16:16:16 by alcierra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ HEADER	=	ft_push_swap.h
 SRCS	=	ft_strs_to_ints.c			ft_list_operations.c		\
 			ft_operation_swap.c					\
 			ft_create_data_element.c	ft_sort.c					\
-			ft_operation_push.c			ft_arg_checker.c			\
+			ft_operation_push.c										\
 			ft_stack_free.c				ft_operation_rotate.c		\
 			ft_operation_revrotate.c					\
 			ft_sort_ints.c											\
