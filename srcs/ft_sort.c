@@ -6,7 +6,7 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 15:42:11 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/13 22:29:04 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/13 22:40:43 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,36 +68,80 @@ void	ft_3_sort(t_all *all, char type)
 	if (first->index > second->index && first->index < third->index
 		&& second->index < third->index)
 	{
-		ft_putendl_fd("sa", 1);
-		ft_operation_swap_a(all);
+		if (type == 'a')
+		{
+			ft_putendl_fd("sa", 1);
+			ft_operation_swap_a(all);
+		}
+		else
+		{
+			ft_putendl_fd("sb", 1);
+			ft_operation_swap_b(all);
+		}
 	}
 	else if (first->index > second->index && first->index > third->index
 		&& second->index > third->index)
 	{
-		ft_putendl_fd("sa", 1);
-		ft_operation_swap_a(all);
-		ft_putendl_fd("rra", 1);
-		ft_operation_revrotate_a(all);
+		if (type == 'a')
+		{
+			ft_putendl_fd("sa", 1);
+			ft_operation_swap_a(all);
+			ft_putendl_fd("rra", 1);
+			ft_operation_revrotate_a(all);
+		}
+		else
+		{
+			ft_putendl_fd("sb", 1);
+			ft_operation_swap_b(all);
+			ft_putendl_fd("rrb", 1);
+			ft_operation_revrotate_b(all);
+		}
 	}
 	else if (first->index > second->index && first->index > third->index
 		&& second->index < third->index)
 	{
-		ft_putendl_fd("ra", 1);
-		ft_operation_rotate_a(all);
+		if (type == 'a')
+		{
+			ft_putendl_fd("ra", 1);
+			ft_operation_rotate_a(all);
+		}
+		else
+		{
+			ft_putendl_fd("rb", 1);
+			ft_operation_rotate_b(all);
+		}
 	}
 	else if (first->index < second->index && first->index < third->index
 		&& second->index > third->index)
 	{
-		ft_putendl_fd("sa", 1);
-		ft_operation_swap_a(all);
-		ft_putendl_fd("ra", 1);
-		ft_operation_rotate_a(all);
+		if (type == 'a')
+		{
+			ft_putendl_fd("sa", 1);
+			ft_operation_swap_a(all);
+			ft_putendl_fd("ra", 1);
+			ft_operation_rotate_a(all);
+		}
+		else
+		{
+			ft_putendl_fd("sb", 1);
+			ft_operation_swap_b(all);
+			ft_putendl_fd("rb", 1);
+			ft_operation_rotate_b(all);
+		}
 	}
 	else if (first->index < second->index && first->index > third->index
 		&& second->index > third->index)
 	{
-		ft_putendl_fd("rra", 1);
-		ft_operation_revrotate_a(all);
+		if (type == 'a')
+		{
+			ft_putendl_fd("rra", 1);
+			ft_operation_revrotate_a(all);
+		}
+		else
+		{
+			ft_putendl_fd("rrb", 1);
+			ft_operation_revrotate_b(all);
+		}
 	}
 }
 
