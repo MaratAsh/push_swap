@@ -6,7 +6,7 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 20:32:10 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/12 17:16:09 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/13 18:56:19 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ t_dlist	*ft_convert(char **strs, size_t count)
 		}
 		i++;
 	}
-	ft_sort_ints(nums, 3);
+	ft_sort_ints(nums, count);
 	dlist = start;
 	while (dlist)
 	{
