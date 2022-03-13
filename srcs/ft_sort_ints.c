@@ -6,7 +6,7 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 21:08:33 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/11 18:44:58 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/13 22:05:55 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,5 @@ static void	quickSort(int arr[], size_t low, size_t high)
 
 void	ft_sort_ints(int *nums, size_t count)
 {
-	quickSort(nums, 1, count - 1);
+	quickSort(nums, 0, count - 1);
 }
