@@ -6,7 +6,7 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 19:54:59 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/12 22:48:02 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/13 20:39:26 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ void	ft_free(void **ptr);
 t_all	*ft_create_stacks(char **strs, size_t count);
 
 t_data	*ft_dlst_mindata(t_dlist *dlst);
+t_dlist	*ft_dlst_mindata_dlst(t_dlist *dlst);
 
 int		ft_is_sorted(t_dlist *st);
 
