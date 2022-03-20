@@ -6,7 +6,7 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 19:51:15 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/13 20:39:10 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/21 00:10:51 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 t_data	*ft_dlst_mindata(t_dlist *dlst)
 {
-	t_dlist	*min_dl;
 	t_data	*min_dt;
 	t_dlist	*curr_dl;
 	t_data	*curr_dt;
@@ -27,7 +26,6 @@ t_data	*ft_dlst_mindata(t_dlist *dlst)
 		if (min_dt->index > curr_dt->index)
 		{
 			min_dt = curr_dt;
-			min_dl = curr_dl;
 		}
 		curr_dl = curr_dl->next;
 	}
