@@ -6,7 +6,7 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 14:08:20 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/04 14:39:39 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/23 17:19:05 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@ t_data	*ft_create_data_element(int number, int index)
 	elem = (t_data *) malloc(sizeof(elem));
 	elem->number = number;
 	elem->index = index;
+	elem->group = 1;
 	return (elem);
 }

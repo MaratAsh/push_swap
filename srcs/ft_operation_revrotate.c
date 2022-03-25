@@ -6,7 +6,7 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 19:57:42 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/11 20:00:54 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/13 19:11:42 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,15 @@ void	ft_operation_revrotate(t_dlist **head)
 
 	first = *head;
 	last = first;
-	while (last->next)
+	while (last && last->next)
 		last = last->next;
 	if (last == first)
 		return ;
 	first->prev = last;
 	last->prev->next = NULL;
 	last->next = first;
-	last->prev = first->prev;
+	if (first)
+		last->prev = first->prev;
 	*head = last;
 }
 
