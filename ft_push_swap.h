@@ -6,7 +6,7 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 19:54:59 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/13 21:01:01 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/25 18:41:57 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ typedef struct s_all
 {
 	t_dlist		*st_a;
 	t_dlist		*st_b;
+	t_dlist		*stack_a_tail;
+	t_dlist		*stack_b_tail;
 }				t_all;
 
 int		*ft_strs_to_ints(char **strs, int count);
@@ -74,10 +76,7 @@ int		ft_check_ints_only(char **strs_ptr, size_t count);
 
 void	ft_2_sort(t_all *all, char type);
 void	ft_3_sort(t_all *all, char type);
-void	ft_4_5_sort(t_all *all);
 void	ft_5_sort(t_all *all);
-void	ft_sort_a(t_all *all);
-void	ft_sort_b(t_all *all);
 
 // ft_process_input.c
 
@@ -115,5 +114,11 @@ void	ft_sort_manager(t_all *all);
 
 void	ft_quick_sort_b(t_all *all);
 void	ft_stack_a_middle(t_all *all);
+
+void	ft_3_sort_case_1(t_all *all, char type);
+void	ft_3_sort_case_2(t_all *all, char type);
+void	ft_3_sort_case_3(t_all *all, char type);
+void	ft_3_sort_case_4(t_all *all, char type);
+void	ft_3_sort_case_5(t_all *all, char type);
 
 #endif
