@@ -6,11 +6,12 @@
 #    By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 19:48:32 by alcierra          #+#    #+#              #
-#    Updated: 2022/03/13 16:16:16 by alcierra         ###   ########.fr        #
+#    Updated: 2022/03/25 18:39:22 by alcierra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	push_swap
+NAME_B	=	checker
 HEADER	=	ft_push_swap.h
 SRCS	=	ft_strs_to_ints.c			ft_list_operations.c		\
 			ft_operation_swap.c					\
@@ -22,7 +23,9 @@ SRCS	=	ft_strs_to_ints.c			ft_list_operations.c		\
 			ft_data.c					ft_convert.c				\
 			ft_smth.c					ft_create_stacks.c			\
 			ft_dlst_mindata.c			ft_is_sorted.c				\
-			ft_sort_manager.c
+			ft_sort_manager.c			ft_quick_sort_b.c			\
+			ft_stack_a_middle.c			ft_3_sort.c					\
+			ft_3_sort_cases.c
 
 SRCS_B	=	bonus/main.c				bonus/ft_process_input.c	\
 			bonus/get_next_line.c		bonus/get_next_line_utils.c
@@ -45,6 +48,8 @@ I_MAKE	=	make -C $(dir $(INCLUDE))
 
 all: lib $(FLDR_O) $(NAME)
 
+bonus: lib $(NAME_B)
+
 lib:
 		${I_MAKE} bonus
 		${I_MAKE}
@@ -56,8 +61,8 @@ $(FLDR_O):
 $(NAME): ${OBJS_WD} ${FLDR_O}main.o ${HEADER}
 		gcc -I. $(INCLUDE) $(OBJS_WD) ${FLDR_O}main.o -o $(NAME)
 
-bonus:	lib $(FLDR_O) ${OBJS_WD} ${OBJS_B_WD}
-		gcc -I. $(INCLUDE) $(OBJS_WD) $(OBJS_B_WD) -o checker
+$(NAME_B): $(FLDR_O) ${OBJS_WD} ${OBJS_B_WD}
+		gcc -I. $(INCLUDE) $(OBJS_WD) $(OBJS_B_WD) -o $(NAME_B)
 
 clean:
 		rm -rf $(FLDR_O)main.o ${OBJS_WD} ${OBJS_B_WD}
@@ -79,4 +84,4 @@ norm:
 leaks:
 		leaks -atExit -- ./push_swap 65 545 5 98 64 84
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
