@@ -6,7 +6,7 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 19:54:59 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/25 18:41:57 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/25 19:53:38 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,4 +121,7 @@ void	ft_3_sort_case_3(t_all *all, char type);
 void	ft_3_sort_case_4(t_all *all, char type);
 void	ft_3_sort_case_5(t_all *all, char type);
 
+int		ft_check_coincedence(int *nums, size_t count, int value);
+
+t_dlist	*ft_create_dlist(void *data, t_dlist *prev, t_dlist *next);
 #endif

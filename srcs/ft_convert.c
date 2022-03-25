@@ -6,99 +6,18 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 20:32:10 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/13 18:56:19 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/25 19:53:58 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_push_swap.h"
 
-t_dlist	*ft_create_dlist(void *data, t_dlist *prev, t_dlist *next)
+static void	ft_set_indexes(int *nums, t_dlist *start, size_t count)
 {
-	t_dlist	*elem;
-
-	elem = malloc(sizeof(t_dlist));
-	if (!elem)
-		return (NULL);
-	elem->content = data;
-	elem->next = next;
-	elem->prev = prev;
-	if (prev)
-		prev->next = elem;
-	if (next)
-		next->prev = elem;
-	return (elem);
-}
-
-int	ft_check_coincedence(int *nums, size_t count, int value)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < count)
-	{
-		if (nums[i] == value)
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-t_dlist	*ft_convert(char **strs, size_t count)
-{
-	char	**ptr;
-	char	*intstr;
-	size_t	i;
 	t_dlist	*dlist;
-	t_dlist	*start;
+	size_t	i;
 	t_data	*data;
-	int		*nums;
 
-	dlist = NULL;
-	if (count == 0)
-		ft_error();
-	if (count == 1 && ft_strchr(*strs, ' ') != NULL)
-	{
-		ptr = ft_split(*strs, ' ');
-		count = ft_count((void **) ptr);
-	}
-	else
-		ptr = strs;
-	i = 0;
-	nums = malloc(sizeof(int) * count);
-	if (!nums)
-		ft_error();
-	start = NULL;
-	while (ptr[i])
-	{
-		nums[i] = ft_atoi(ptr[i]);
-		intstr = ft_itoa(nums[i]);
-		if (intstr)
-		{
-			while (ptr[i][0] == '0' && (ptr[i][1] >= '0' && ptr[i][1] <= '9'))
-				ptr[i]++;
-			if (ft_strncmp(ptr[i], intstr, ft_strlen(intstr) + 1) == 0
-				&& ft_check_coincedence(nums, i, nums[i]) == 0)
-			{
-				dlist = ft_create_dlist(
-						ft_create_data(nums[i], 0), dlist, NULL);
-				if (i == 0)
-					start = dlist;
-			}
-			else
-			{
-				if (start)
-					ft_dlstclear(&start, NULL);
-				if (nums)
-					free(nums);
-				if (ptr != strs)
-					ft_free((void **) ptr);
-				free(intstr);
-				ft_error();
-			}
-			free(intstr);
-		}
-		i++;
-	}
 	ft_sort_ints(nums, count);
 	dlist = start;
 	while (dlist)
@@ -116,6 +35,88 @@ t_dlist	*ft_convert(char **strs, size_t count)
 		}
 		dlist = dlist->next;
 	}
+}
+
+static void	ft_noooooooorm(char **strs, char **ptr, int *nums, char *intstr)
+{
+	if (nums)
+		free(nums);
+	if (ptr != strs)
+		ft_free((void **) ptr);
+	free(intstr);
+	ft_error();
+}
+
+static t_dlist	*ft_convert_norm_proccess_int(char **strs, char **ptr,
+				int *nums, char *intstr)
+{
+	static t_dlist	*start;
+	static t_dlist	*dlist;
+	static size_t	i;
+
+	if (!dlist)
+		i = 0;
+	else
+		i++;
+	while (ptr[i][0] == '0' && (ptr[i][1] >= '0' && ptr[i][1] <= '9'))
+		ptr[i]++;
+	if (ft_strncmp(ptr[i], intstr, ft_strlen(intstr) + 1) == 0
+		&& ft_check_coincedence(nums, i, nums[i]) == 0)
+	{
+		dlist = ft_create_dlist(ft_create_data(nums[i], 0), dlist, NULL);
+		if (i == 0)
+			start = dlist;
+	}
+	else
+	{
+		if (start)
+			ft_dlstclear(&start, free);
+		ft_noooooooorm(strs, ptr, nums, intstr);
+	}
+	free(intstr);
+	return (start);
+}
+
+static void	ft_convert_norm(char **strs, char **ptr,
+				int *nums, t_dlist **start_ptr)
+{
+	size_t	i;
+	char	*intstr;
+
+	*start_ptr = NULL;
+	i = 0;
+	while (ptr[i])
+	{
+		nums[i] = ft_atoi(ptr[i]);
+		intstr = ft_itoa(nums[i]);
+		if (i == 0)
+			*start_ptr = ft_convert_norm_proccess_int(strs, ptr, nums, intstr);
+		else
+			ft_convert_norm_proccess_int(strs, ptr, nums, intstr);
+		i++;
+	}
+}
+
+t_dlist	*ft_convert(char **strs, size_t count)
+{
+	char	**ptr;
+	t_dlist	*start;
+	int		*nums;
+
+	if (count == 0)
+		ft_error();
+	if (count == 1 && ft_strchr(*strs, ' ') != NULL)
+	{
+		ptr = ft_split(*strs, ' ');
+		count = ft_count((void **) ptr);
+	}
+	else
+		ptr = strs;
+	nums = malloc(sizeof(int) * count);
+	if (!nums)
+		ft_error();
+	ft_convert_norm(strs, ptr, nums, &start);
+	ft_set_indexes(nums, start, count);
 	free(nums);
 	if (ptr != strs)
 		ft_free((void **) ptr);

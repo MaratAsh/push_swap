@@ -6,7 +6,7 @@
 #    By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 19:48:32 by alcierra          #+#    #+#              #
-#    Updated: 2022/03/25 18:39:22 by alcierra         ###   ########.fr        #
+#    Updated: 2022/03/25 19:53:23 by alcierra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ SRCS	=	ft_strs_to_ints.c			ft_list_operations.c		\
 			ft_dlst_mindata.c			ft_is_sorted.c				\
 			ft_sort_manager.c			ft_quick_sort_b.c			\
 			ft_stack_a_middle.c			ft_3_sort.c					\
-			ft_3_sort_cases.c
+			ft_3_sort_cases.c			ft_check_coincedence.c		\
+			ft_create_dlist.c
 
 SRCS_B	=	bonus/main.c				bonus/ft_process_input.c	\
 			bonus/get_next_line.c		bonus/get_next_line_utils.c
