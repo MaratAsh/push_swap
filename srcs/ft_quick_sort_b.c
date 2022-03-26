@@ -6,23 +6,11 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 14:27:54 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/25 20:06:28 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/26 11:54:00 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_push_swap.h"
-
-void	ft_stack_group_add(t_dlist *stack)
-{
-	t_data	*data;
-
-	while (stack)
-	{
-		data = ft_dlstdata(stack);
-		data->group++;
-		stack = stack->next;
-	}
-}
 
 void	ft_stack_b_push_to_a(t_all *all)
 {
