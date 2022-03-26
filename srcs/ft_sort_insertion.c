@@ -39,8 +39,8 @@ void	ft_sort_insertion_b(t_all *all)
 			ft_putendl_fd("rb", 1);
 		}
 	}
-	ft_operation_push_a(all->st_b);
-	ft_putendl_fd("pb", 1);
+	ft_operation_push_a(all);
+	ft_putendl_fd("pa", 1);
 	if (count > 1)
 		ft_sort_insertion_b(all);
 }
