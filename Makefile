@@ -6,7 +6,7 @@
 #    By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 19:48:32 by alcierra          #+#    #+#              #
-#    Updated: 2022/03/25 19:53:23 by alcierra         ###   ########.fr        #
+#    Updated: 2022/03/26 09:00:08 by alcierra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ SRCS	=	ft_strs_to_ints.c			ft_list_operations.c		\
 			ft_sort_manager.c			ft_quick_sort_b.c			\
 			ft_stack_a_middle.c			ft_3_sort.c					\
 			ft_3_sort_cases.c			ft_check_coincedence.c		\
-			ft_create_dlist.c
+			ft_create_dlist.c			ft_big_sort.c				\
+			ft_strint_to_norm.c
 
 SRCS_B	=	bonus/main.c				bonus/ft_process_input.c	\
 			bonus/get_next_line.c		bonus/get_next_line_utils.c
@@ -60,10 +61,10 @@ $(FLDR_O):
 		mkdir $(FLDR_O)bonus
 
 $(NAME): ${OBJS_WD} ${FLDR_O}main.o ${HEADER}
-		gcc -I. $(INCLUDE) $(OBJS_WD) ${FLDR_O}main.o -o $(NAME)
+		gcc $(OBJS_WD) ${FLDR_O}main.o -o $(NAME) -I. $(INCLUDE)
 
 $(NAME_B): $(FLDR_O) ${OBJS_WD} ${OBJS_B_WD}
-		gcc -I. $(INCLUDE) $(OBJS_WD) $(OBJS_B_WD) -o $(NAME_B)
+		gcc $(OBJS_WD) $(OBJS_B_WD) -o $(NAME_B) -I. $(INCLUDE)
 
 clean:
 		rm -rf $(FLDR_O)main.o ${OBJS_WD} ${OBJS_B_WD}

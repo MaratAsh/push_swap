@@ -6,7 +6,7 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 20:32:10 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/25 19:53:58 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/26 09:10:26 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,9 @@ static t_dlist	*ft_convert_norm_proccess_int(char **strs, char **ptr,
 		i = 0;
 	else
 		i++;
-	while (ptr[i][0] == '0' && (ptr[i][1] >= '0' && ptr[i][1] <= '9'))
-		ptr[i]++;
+	ft_strint_to_norm(ptr + i);
+	//while (ptr[i][0] == '0' && (ptr[i][1] >= '0' && ptr[i][1] <= '9'))
+	//	ptr[i]++;
 	if (ft_strncmp(ptr[i], intstr, ft_strlen(intstr) + 1) == 0
 		&& ft_check_coincedence(nums, i, nums[i]) == 0)
 	{
