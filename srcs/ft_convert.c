@@ -6,7 +6,7 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 20:32:10 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/26 09:10:26 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/26 11:28:55 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,31 +37,24 @@ static void	ft_set_indexes(int *nums, t_dlist *start, size_t count)
 	}
 }
 
-static void	ft_noooooooorm(char **strs, char **ptr, int *nums, char *intstr)
+static void	ft_noooooooorm(int *nums, char *intstr)
 {
 	if (nums)
 		free(nums);
-	if (ptr != strs)
-		ft_free((void **) ptr);
 	free(intstr);
 	ft_error();
 }
 
-static t_dlist	*ft_convert_norm_proccess_int(char **strs, char **ptr,
+static t_dlist	*ft_convert_norm_proccess_int(char **strs, size_t i,
 				int *nums, char *intstr)
 {
 	static t_dlist	*start;
 	static t_dlist	*dlist;
-	static size_t	i;
+	char			*input_str;
 
-	if (!dlist)
-		i = 0;
-	else
-		i++;
-	ft_strint_to_norm(ptr + i);
-	//while (ptr[i][0] == '0' && (ptr[i][1] >= '0' && ptr[i][1] <= '9'))
-	//	ptr[i]++;
-	if (ft_strncmp(ptr[i], intstr, ft_strlen(intstr) + 1) == 0
+	input_str = strs[i];
+	ft_strint_to_norm(&input_str);
+	if (ft_strncmp(input_str, intstr, ft_strlen(intstr) + 1) == 0
 		&& ft_check_coincedence(nums, i, nums[i]) == 0)
 	{
 		dlist = ft_create_dlist(ft_create_data(nums[i], 0), dlist, NULL);
@@ -72,13 +65,13 @@ static t_dlist	*ft_convert_norm_proccess_int(char **strs, char **ptr,
 	{
 		if (start)
 			ft_dlstclear(&start, free);
-		ft_noooooooorm(strs, ptr, nums, intstr);
+		ft_noooooooorm(nums, intstr);
 	}
 	free(intstr);
 	return (start);
 }
 
-static void	ft_convert_norm(char **strs, char **ptr,
+static void	ft_convert_norm(char **strs,
 				int *nums, t_dlist **start_ptr)
 {
 	size_t	i;
@@ -86,14 +79,14 @@ static void	ft_convert_norm(char **strs, char **ptr,
 
 	*start_ptr = NULL;
 	i = 0;
-	while (ptr[i])
+	while (strs[i])
 	{
-		nums[i] = ft_atoi(ptr[i]);
+		nums[i] = ft_atoi(strs[i]);
 		intstr = ft_itoa(nums[i]);
 		if (i == 0)
-			*start_ptr = ft_convert_norm_proccess_int(strs, ptr, nums, intstr);
+			*start_ptr = ft_convert_norm_proccess_int(strs, i, nums, intstr);
 		else
-			ft_convert_norm_proccess_int(strs, ptr, nums, intstr);
+			ft_convert_norm_proccess_int(strs, i, nums, intstr);
 		i++;
 	}
 }
@@ -110,16 +103,15 @@ t_dlist	*ft_convert(char **strs, size_t count)
 	{
 		ptr = ft_split(*strs, ' ');
 		count = ft_count((void **) ptr);
+		start = ft_convert(ptr, count);
+		ft_free((void **) ptr);
+		return (start);
 	}
-	else
-		ptr = strs;
 	nums = malloc(sizeof(int) * count);
 	if (!nums)
 		ft_error();
-	ft_convert_norm(strs, ptr, nums, &start);
+	ft_convert_norm(strs, nums, &start);
 	ft_set_indexes(nums, start, count);
 	free(nums);
-	if (ptr != strs)
-		ft_free((void **) ptr);
 	return (start);
 }
