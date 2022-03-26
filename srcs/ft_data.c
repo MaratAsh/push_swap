@@ -6,7 +6,7 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 17:29:47 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/11 17:32:16 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/26 11:38:11 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,7 @@ t_data	*ft_create_data(int number, unsigned int index)
 
 t_data	*ft_dlstdata(t_dlist *dlist)
 {
+	if (!dlist)
+		return (NULL);
 	return ((t_data *)(dlist->content));
 }
