@@ -6,7 +6,7 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 15:42:11 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/25 18:45:52 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/27 11:50:06 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,4 @@ void	ft_2_sort(t_all *all, char type)
 	second_data = (t_data *) second->content;
 	if (first_data->number > second_data->number)
 		ft_2_sort_1greater2_norm(all, type);
-}
-
-void	ft_5_sort(t_all *all)
-{
-	(void) all;
 }
