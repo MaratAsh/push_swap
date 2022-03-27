@@ -6,7 +6,7 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 13:18:26 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/09 14:53:43 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/27 12:52:30 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,8 @@ static void	ft_strreplchr(char *str, int key, int value)
 size_t	ft_process_input(t_all *data)
 {
 	char	*input;
-	size_t	count;
 
-	input = get_next_line(1);
-	count = 0;
+	input = get_next_line(0);
 	while (input)
 	{
 		if (input[0] == 0)
@@ -70,11 +68,16 @@ size_t	ft_process_input(t_all *data)
 			break ;
 		}
 		ft_strreplchr(input, '\n', '\0');
-		count += ft_process_command(input, data);
+		if(ft_process_command(input, data) == 0)
+		{
+			free(input);
+			ft_error();
+			return (0);
+		}
 		free(input);
-		input = get_next_line(1);
+		input = get_next_line(0);
 	}
-	return (count);
+	return (1);
 }
 
 /*
