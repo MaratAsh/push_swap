@@ -6,14 +6,14 @@
 #    By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 19:48:32 by alcierra          #+#    #+#              #
-#    Updated: 2022/03/27 10:35:53 by alcierra         ###   ########.fr        #
+#    Updated: 2022/03/27 11:28:39 by alcierra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	push_swap
 NAME_B	=	checker
 HEADER	=	ft_push_swap.h
-SRCS	=	ft_strs_to_ints.c			ft_list_operations.c		\
+SRCS	=	ft_strs_to_ints.c					\
 			ft_operation_swap.c					\
 			ft_create_data_element.c	ft_sort.c					\
 			ft_operation_push.c										\
@@ -23,10 +23,10 @@ SRCS	=	ft_strs_to_ints.c			ft_list_operations.c		\
 			ft_data.c					ft_convert.c				\
 			ft_smth.c					ft_create_stacks.c			\
 			ft_dlst_mindata.c			ft_is_sorted.c				\
-			ft_sort_manager.c			ft_quick_sort_b.c			\
+			ft_sort_manager.c							\
 			ft_stack_a_middle.c			ft_3_sort.c					\
 			ft_3_sort_cases.c			ft_check_coincedence.c		\
-			ft_create_dlist.c			ft_big_sort.c				\
+			ft_create_dlist.c							\
 			ft_strint_to_norm.c										\
 			ft_sort_butterfly.c			ft_sort_butterfly_simple.c	\
 			ft_dlstdata_max.c			ft_push_a_max_b.c

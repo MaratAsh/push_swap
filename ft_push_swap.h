@@ -6,7 +6,7 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 19:54:59 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/27 10:36:09 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/27 11:25:31 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,6 @@ void			ft_sort_ints(int *nums, size_t count);
 /*
 	NEW
 */
-
-// ft_list_operations.c
-
-void			ft_dllist_print(t_dlist *dllist, int rec_depth);
 
 // ft_data.c
 
