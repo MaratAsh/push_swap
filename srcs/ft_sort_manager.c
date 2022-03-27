@@ -6,7 +6,7 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 22:44:48 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/27 11:18:38 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/27 12:04:50 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@ void	ft_sort_manager(t_all *all)
 		ft_2_sort(all, 'a');
 	else if (count == 3)
 		ft_3_sort(all, 'a');
+	else if (count == 4)
+		ft_4_sort(all);
+	else if (count == 5)
+		ft_5_sort(all);
 	else if (count < 20)
 		ft_sort_butterfly_simple(all);
 	else if (count > 3)
