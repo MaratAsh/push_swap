@@ -6,7 +6,7 @@
 #    By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 19:48:32 by alcierra          #+#    #+#              #
-#    Updated: 2022/03/27 11:28:39 by alcierra         ###   ########.fr        #
+#    Updated: 2022/03/27 12:05:29 by alcierra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,8 @@ SRCS	=	ft_strs_to_ints.c					\
 			ft_create_dlist.c							\
 			ft_strint_to_norm.c										\
 			ft_sort_butterfly.c			ft_sort_butterfly_simple.c	\
-			ft_dlstdata_max.c			ft_push_a_max_b.c
+			ft_dlstdata_max.c			ft_push_a_max_b.c			\
+			ft_5_sort.c					ft_4_sort.c
 
 SRCS_B	=	bonus/main.c				bonus/ft_process_input.c	\
 			bonus/get_next_line.c		bonus/get_next_line_utils.c
