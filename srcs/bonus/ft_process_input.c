@@ -6,7 +6,7 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 13:18:26 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/27 12:52:30 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/27 12:56:43 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ size_t	ft_process_input(t_all *data)
 			break ;
 		}
 		ft_strreplchr(input, '\n', '\0');
-		if(ft_process_command(input, data) == 0)
+		if (ft_process_command(input, data) == 0)
 		{
 			free(input);
 			ft_error();
