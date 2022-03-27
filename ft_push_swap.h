@@ -6,7 +6,7 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 19:54:59 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/27 09:58:32 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/27 10:36:09 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,8 @@ void			ft_strint_to_norm(char **str_ptr);
 
 t_dlist			*ft_dlstdata_max(t_dlist *dlist);
 unsigned int	ft_dlstdata_max_index(t_dlist *dlist);
+
+void			ft_push_a_max_b(t_all *all);
 
 // butterfly sort - algorithm by @gannemar
 void			ft_sort_butterfly_simple(t_all *all);
