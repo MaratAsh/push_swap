@@ -6,7 +6,7 @@
 /*   By: alcierra <alcierra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 08:51:07 by alcierra          #+#    #+#             */
-/*   Updated: 2022/03/26 08:59:25 by alcierra         ###   ########.fr       */
+/*   Updated: 2022/03/27 11:44:32 by alcierra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ void	ft_strint_to_norm(char **str_ptr)
 	while (strint[0] == '0' && (strint[1] >= '0' && strint[1] <= '9'))
 		strint++;
 	if (positiv == 0 && *strint != '0')
-		*(strint - 1) = '-';
+		*(--strint) = '-';
 	*str_ptr = strint;
 }
